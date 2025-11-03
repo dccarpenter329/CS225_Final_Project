@@ -233,7 +233,7 @@ int main() {
     ifstream fin("ascii_art.txt");
     string header[18];
    for (i=0; i<18; i++) {
-     header[i]= getline(fin, line);
+     getline(fin, header[i]);
     cout << header[i];
 }
     cout << "Welcome to Hogwarts";

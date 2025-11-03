@@ -1,6 +1,9 @@
 class Gringotts{
 private:
-
+  int Galleon;
+  int Sickle;
+  int Knut;
 public:
-Gringotts();
+  Gringotts(string);
+  bank();
 };

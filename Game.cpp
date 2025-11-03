@@ -234,7 +234,7 @@ int main() {
     string header[18];
    for (i=0; i<18; i++) {
      getline(fin, header[i]);
-    cout << header[i];
+    cout << header[i] << endl;
 }
     cout << "Welcome to Hogwarts";
 	Gringotts g;

@@ -1,9 +1,24 @@
-class Gringotts{
+#include <iostream>
+class Wallet {
+protected:
+	int walletGalleons;
+	int walletSickles;
+	int walletKnuts;
+//	int walletBalance;
+public: 
+    void walletBalance();
+};
+
+class Gringotts: public Wallet {
 private:
-  int Galleon;
-  int Sickle;
-  int Knut;
+	int Galleons;
+	int Sickles;
+	int Knuts;
+	int Balance;
 public:
-  Gringotts(string);
-  bank();
+//	Gringotts(string);
+	void balance();
+	void withdraw();
+	void deposit();
+	void bank();
 };

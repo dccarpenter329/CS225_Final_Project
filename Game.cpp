@@ -228,6 +228,15 @@ void Gringotts::bank() {
 	else {}
 }
 int main() {
+    int i;
+    string line;
+    ifstream fin("ascii_art.txt");
+    string header[18];
+   for (i=0; i<18; i++) {
+     header[i]= getline(fin, line);
+    cout << header[i];
+}
+    cout << "Welcome to Hogwarts";
 	Gringotts g;
 	return 0;
 }

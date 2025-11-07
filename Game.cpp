@@ -1,5 +1,6 @@
 #include <iostream>
 #include <fstream>
+#include <unistd.h>
 #include "Gringotts.h"
 using namespace std;
 /*Error handling */
@@ -236,7 +237,32 @@ int main() {
      getline(fin, header[i]);
     cout << header[i] << endl;
 }
-    cout << "Welcome to Hogwarts";
+    cout << "You open the letter and find out you're a wizard!" << endl;
+    cout << "You take a look at the list of required supplies..." << endl;
+    cout << "Wand, robes, books, cauldron, pet...everything found in Diagon Alley" << endl;
+    sleep(5);
+    cout << "But you have no clue what Diagon Alley is or where to find it." << endl;
+    cout << "You rifle through the papers in the hopes of finding something when you find a map on the back of the list!" << endl;
+    sleep(5);
+    cout << "You grab your wallet and a bag and head out in search of the wizard town." << endl;
+    cout << "You walk towards Charing Cross Road and find the Leaky Caldron." << endl;
+    sleep (5);
+    cout << "Following the instructions, you walk around to the courtyard behind the tavern";
+    cout << "and find a rubbish bin against a brick wall." << endl;
+    cout << "You go 3 bricks up and 2 across and knock twice." << endl;
+    sleep (5);
+    cout << "Suddenly the brick wall opens up to a bustling street full of wizards dressed in robes." << endl;
+    cout << "Many of them are the same age as you carrying similar bags full of new school supplies. " << endl;
+    sleep(5);
+    cout << "You stop one and ask where to find Ollivanders wand shop." << endl;
+    cout << "Following the directions you turn right and walk until you find the sign: " << endl;
+    cout << "Ollivanders: Makers of Fine Wands since 382 B.C." << endl;
+    sleep(5);
+    cout << "You enter the shop to find your wand." << endl;
+    cout << "You find a wand made of Aspen with a Dragon Heartstring core." << endl;
+    cout << "You go to pay for it with your Pounds when he tells you those are not accepted in the wizarding world." << endl;
+    sleep(5);
+    cout << "You must go to Gringotts bank across the street to exchange your money." << endl;
 	Gringotts g;
 	return 0;
 }

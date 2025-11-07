@@ -246,7 +246,6 @@ void Gringotts::bank() {
 }
 int main() {
     int i;
-    string line;
     ifstream fin("ascii_art.txt");
     string header[18];
    for (i=0; i<18; i++) {

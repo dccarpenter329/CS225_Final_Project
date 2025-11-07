@@ -16,7 +16,7 @@ private:
 	int Knuts;
 	int Balance;
 public:
-//	Gringotts(string);
+	Gringotts();
 	void balance();
 	void withdraw();
 	void deposit();

@@ -208,6 +208,22 @@ void Gringotts:: withdraw() {
 		cout << "You have no Knuts to deposit." << endl;
 	}
 }
+Gringotts::Gringotts() {
+    string name;
+    cout << "Welcome to Gringotts Wizarding Bank!" << endl;
+    cout << "What is your name so we can open a bank account for you? ";
+    cin >> name;
+    cout << "Welcome to the wizarding world " << name << "!" << endl;
+    sleep(5);
+    cout << "To open your account we need to have a starting balance." << endl;
+    cout << "Let's exchange your Pounds for wizard currency." << endl;
+    Galleons= 41;
+    Sickles= 16;
+    Knuts= 391;
+    balance();
+    sleep(10);
+    withdraw();
+}
 void Gringotts::bank() {
 	int choice;
 	cout << "Would you like to check your account balance (1), deposit money (2), or withdraw money (3)? ";
@@ -239,7 +255,8 @@ int main() {
 }
     cout << "You open the letter and find out you're a wizard!" << endl;
     cout << "You take a look at the list of required supplies..." << endl;
-    cout << "Wand, robes, books, cauldron, pet...everything found in Diagon Alley" << endl;
+    cout << "Wand, robes, books, cauldron, pet..." << endl;
+    cout << "A note at the bottom: Everything you need can be found in Diagon Alley" << endl;
     sleep(5);
     cout << "But you have no clue what Diagon Alley is or where to find it." << endl;
     cout << "You rifle through the papers in the hopes of finding something when you find a map on the back of the list!" << endl;

@@ -90,12 +90,10 @@ int main() {
 				cin >> choice;
 				choice = error(choice);
 			}
-   if (choice== 1) {}
-   
-	// anytime you withdraw many use balance insertion operator first <<
-	/*g.bank();
-	try() {
-
-	}*/
+   if (choice== 1) {
+   	g.withdraw();
+   }
+cout << "You take a look at your list- next up you must find your pet." << endl;
+	// at one point you don't have enough money. you find someone in the alleygggg
 	return 0;
 }

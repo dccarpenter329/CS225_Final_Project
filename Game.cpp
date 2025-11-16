@@ -94,6 +94,15 @@ int main() {
    	g.withdraw();
    }
 cout << "You take a look at your list- next up you must find your pet." << endl;
+cout << "You ask Ollivandar where to find a pet store. He tells you to look for the Magical Menagerie on the North side of Diagon Alley." << endl;
+	cout << "However, he warns you to be careful as some odd people often linger on the streets of the North side." << endl;
+	sleep(5);
+cout << "With this warning in mind, you head towards North side in search of a new pet." << endl;
+	cout << "You pass candy shops and apothecarys, shops of ends and oddities. " << endl;
+	sleep(5);
+	cout << "After 10 minutes of walking the street begins to dim, lamposts either gone out or glass broken." << endl;
+	cout << "Suddenly you hear someone whisper at you from an alley... \"pst, hey you\"
+	
 	// at one point you don't have enough money. you find someone in the alleygggg
 	return 0;
 }

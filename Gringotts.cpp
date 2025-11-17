@@ -217,6 +217,7 @@ void Gringotts:: withdraw() {
 /* Gringotts class- Transaction function */
 int Gringotts:: Transaction(int tempGalleons, int tempSickles, int tempKnuts) {
 	int choice;
+  walletBalance();
 	/* Converting charge total to Knuts*/
 	int GalleonsToKnuts = tempGalleons* 493; // 493 Knuts in a Galleon
 	int SicklesToKnuts = tempSickles* 29; // 29 Knuts in a Sickle
@@ -252,31 +253,13 @@ Gringotts::Gringotts(string keyword, string name):bankAccount(keyword,name) {
 	sleep(5);
 	cout << "To open your account we need to have a starting balance." << endl;
 	cout << "Let's exchange your Pounds for wizard currency." << endl;
-	bankAccount.setGalleons(11);
+	bankAccount.setGalleons(41);
 	bankAccount.setSickles(16);
 	bankAccount.setKnuts(391);
+  cout << bankAccount << endl;
+  cout << "Now lets help you withdraw some money for your wallet." << endl;
 	withdraw();
 }
-
-/* Gringotts Transaction test function
-void Gringotts:: TransactionTest(int tempGalleons, int tempSickles, int tempKnuts) {
-   string MSG1= "Cannot complete transaction- not enough Galleons";
-   string MSG2= "Cannot complete transaction- not enough Sickles";
-   string MSG3= "Cannot complete transaction- not enough Knuts";
-   if (walletGalleons()<tempGalleons) {
-     throw(MSG1);
-   }
-   if (walletSickles() < tempSickles && walletGalleons<=tempGalleons) {
-     throw(MSG1);
-   }
-   if (walletKnuts() < tempKnuts && walletSickles<=tempSickles && walletGalleons<=tempGalleons) {
-     throw(MSG3);
-   }
- }*/
-
-/*    walletGalleons-=costGalleons;
-  while (walletSickles() < costSickles) {
-    walletGalleons--;*/
 
 
 /*	void bank(Gringotts& temp) {

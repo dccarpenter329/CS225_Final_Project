@@ -62,6 +62,7 @@ void Alley() {
 	if (pet!=1) {
 		cout << "Your lack of cleverness disappoints me." << endl;
 		cout << "You do not deserve a phoenix as your companion. Be gone!" << endl;
+		pet = 0;
 	}
 }
 
@@ -70,5 +71,4 @@ void Alley() {
 
 
 
-  
-  
+

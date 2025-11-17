@@ -1,7 +1,7 @@
 #include <iostream>
 #include "Gringotts.h"
 using namespace std;
-void wand(int Height, int EyeColor, int Trait) {
+void Wand(int Height, int EyeColor, int Trait) {
 	float length;
 	if (Height==1) {
 
@@ -31,7 +31,7 @@ void wand(int Height, int EyeColor, int Trait) {
 		cout << "Wood: Poplar" << endl;
 	}
 }
-void wandQuiz() {
+void WandQuiz() {
 	int height, eyeColor, trait;
 	cout << "Enter your height (short=1, tall=2, average=3)" ;
 	cin >> height;
@@ -60,5 +60,5 @@ void wandQuiz() {
 		cin >> trait;
 		trait = error(trait);
 	}
- wand(height, eyeColor,trait);
+ Wand(height, eyeColor,trait);
   }

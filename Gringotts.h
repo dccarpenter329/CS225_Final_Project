@@ -1,13 +1,13 @@
 #include <iostream>
 using namespace std;
-void wand();
-void wandQuiz();
+void Wand();
+void WandQuiz();
 int error(int);
 void Alley();
 
 //Global Variables
-int wand;
-int pet;
+extern int wand;
+extern int pet;
 //void cost(int, int, int, BankAccount&);
 //void bank(Gringotts&);
 class Wallet {
@@ -48,6 +48,6 @@ public:
 	void balance();
 	void withdraw();
 	void deposit();
-	int transaction();
-	//void bank(Gringotts&);
+	int Transaction(int, int, int);
+	//void bank();
 };

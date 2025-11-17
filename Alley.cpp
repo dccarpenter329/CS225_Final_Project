@@ -10,6 +10,7 @@ using namespace std;
 void Alley() {
 	srand(time(NULL));
 	int choice, i;
+ int pet = 0;
 	string wordBank[3]= {"hippogriff", "azkaban", "basilisk"};
 	multiset<char> word;
 	cout << "You walk over to the witch" << endl;
@@ -36,15 +37,14 @@ void Alley() {
 		//cout << word[i];
 	}
 	cout << "Unscramble: ";
-	for(char c : word) {
+/*	for(char c : word) {
 		cout << c << " ";
-	}
+	}*/
 	cout << endl;
 	cout << "You have 3 guesses" << endl;
 	int count=3;
 	int ii=1;
 	string guess;
-	int pet=0;
 	do {
 		cin >> guess;
 		if (guess== wordBank[r]) {
@@ -62,7 +62,7 @@ void Alley() {
 	if (pet!=1) {
 		cout << "Your lack of cleverness disappoints me." << endl;
 		cout << "You do not deserve a phoenix as your companion. Be gone!" << endl;
-		pet = 0;
+   pet = 0;
 	}
 }
 
@@ -71,4 +71,5 @@ void Alley() {
 
 
 
-
+  
+  

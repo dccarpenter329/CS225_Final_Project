@@ -72,12 +72,13 @@ int main() {
 	int wandPurchase = g.Transaction(26,5,200);
 	if (wandPurchase==0) {
 		cout << "You cannot get a wand" << endl;
-		wand=0;
-		else {
-			wand=1;
-		}
-
-		// anytime you withdraw many use balance insertion operator first <<
-
-		return 0;
+		wand=0
 	}
+	else {
+		wand=1;
+	}
+
+	// anytime you withdraw many use balance insertion operator first <<
+
+	return 0;
+}

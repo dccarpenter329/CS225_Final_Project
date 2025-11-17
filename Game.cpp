@@ -18,6 +18,8 @@ int error(int x) {
 int main() {
 	srand(time(NULL));
 	int i;
+ int wand = 0;
+ string temp;
 	string nme, kywrd;
 	string MESSAGE= "Error: invalid keyword";
 	ifstream fin("ascii_art.txt");
@@ -49,14 +51,16 @@ int main() {
 	cout << "Ollivanders: Makers of Fine Wands since 382 B.C." << endl;
 	//sleep(5);
 	cout << "You enter the shop to find your wand." << endl;
-	wandQuiz();
-	cout << "You go to pay for it with Pounds when he tells you those are not accepted in the wizarding world." << endl;
+	WandQuiz();
+ 	cout << "Your wand costs 26 Galleons, 5 Sickles, and 200 Knuts." << endl;
+	cout << "You go to pay for it with Pounds when Ollivander tells you those are not accepted in the wizarding world." << endl;
 	//sleep(5);
 	cout << "You must go to Gringotts bank across the street to exchange your money." << endl;
 	cout << "You walk across the street and enter the massive marbled building." << endl;
 	//sleep(5);
 	cout << "Welcome to Gringotts Wizarding Bank!" << endl;
 	cout << "What is your full name so we can open a bank account for you? ";
+ cin >> temp; // Read in new line character before getline
 	getline(cin, nme, '\n');
 	cout << "Enter a keyword to access your bank account in the future: ";
 	cin >> kywrd;
@@ -65,14 +69,12 @@ int main() {
 		cout << "Enter a keyword to access your bank account in the future: ";
 		cin >> kywrd;
 	}
-	Gringotts g(nme, kywrd);
+	Gringotts g(kywrd, nme);
+ sleep(5);
 	cout << "With wizard money in your wallet you head back to Ollivanders to purchase you wand." << endl;
-	cout << "Your wand costs 26 Galleons, 5 Sickles, and 200 Knuts." << endl;
-	cout << walletBalance();
 	int wandPurchase = g.Transaction(26,5,200);
 	if (wandPurchase==0) {
 		cout << "You cannot get a wand" << endl;
-		wand=0
 	}
 	else {
 		wand=1;

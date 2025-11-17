@@ -69,40 +69,15 @@ int main() {
 	cout << "With wizard money in your wallet you head back to Ollivanders to purchase you wand." << endl;
 	cout << "Your wand costs 26 Galleons, 5 Sickles, and 200 Knuts." << endl;
 	cout << walletBalance();
-	try {
-		g.transaction(26,5,200);
+	int wandPurchase = g.Transaction(26,5,200);
+	if (wandPurchase==0) {
+		cout << "You cannot get a wand" << endl;
+		wand=0;
+		else {
+			wand=1;
+		}
+
+		// anytime you withdraw many use balance insertion operator first <<
+
+		return 0;
 	}
-	catch(message1) {
-		cout << message << endl;
-	}
- catch(message2) {
-   cout << message2 << endl;
-   }
-   catch(message3) {
-   cout << message3 << endl;
-   }
-   cout << "Would you like to go to the bank? (Yes=1, No=2)";
-   cin >> choice;
-   choice= error(choice);
-			while (choice!=1 && choice!=2) {
-				cout << "Invalid input. Try again." << endl;
-				cout << "Would you like to go to the bank? (Yes=1, No=2)";
-				cin >> choice;
-				choice = error(choice);
-			}
-   if (choice== 1) {
-   	g.withdraw();
-   }
-cout << "You take a look at your list- next up you must find your pet." << endl;
-cout << "You ask Ollivandar where to find a pet store. He tells you to look for the Magical Menagerie on the North side of Diagon Alley." << endl;
-	cout << "However, he warns you to be careful as some odd people often linger on the streets of the North side." << endl;
-	sleep(5);
-cout << "With this warning in mind, you head towards North side in search of a new pet." << endl;
-	cout << "You pass candy shops and apothecarys, shops of ends and oddities. " << endl;
-	sleep(5);
-	cout << "After 10 minutes of walking the street begins to dim, lamposts either gone out or glass broken." << endl;
-	cout << "Suddenly you hear someone whisper at you from an alley... \"pst, hey you\"
-	
-	// at one point you don't have enough money. you find someone in the alleygggg
-	return 0;
-}

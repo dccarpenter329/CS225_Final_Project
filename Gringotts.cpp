@@ -1,11 +1,11 @@
-//Throw an exception object
 #include <iostream>
-#include "Gringotts.h"
 #include <unistd.h>
+#include "Gringotts.h"
 using namespace std;
 
-/* Operator overloading */
+/*Operator overloading*/
 ostream& operator<<(ostream& out, BankAccount& temp) {
+	out << endl;
 	out << "Bank Balance: " << endl;
 	out << "Galleons: " << temp.Galleons << endl;
 	out << "Sickles: " << temp.Sickles << endl;
@@ -13,7 +13,7 @@ ostream& operator<<(ostream& out, BankAccount& temp) {
 	return out;
 }
 
-/* Wallet class- checking wallet balance function*/
+/*Wallet class- checking wallet balance function*/
 void Wallet:: walletBalance() {
 	cout << "Wallet balance: " << endl;
 	cout << "Galleons: " << walletGalleons << endl;
@@ -21,265 +21,184 @@ void Wallet:: walletBalance() {
 	cout << "Knuts: " << walletKnuts << endl;
 }
 
-/* Wallet class- conversion function*/
-int Wallet:: getConversion() {
+/*Wallet class- conversion function*/
+int Wallet::getConversion() {
 	/* Converting change to Knuts*/
-	int GalleonsToKnuts = walletGalleons* 493; // 493 Knuts in a Galleon
-	int SicklesToKnuts = walletSickles* 29; // 29 Knuts in a Sickle
-	int total = walletKnuts + GalleonsToKnuts + SicklesToKnuts;
+	int galleonsToKnuts = walletGalleons* 493; // 493 Knuts in a Galleon
+	int sicklesToKnuts = walletSickles* 29; // 29 Knuts in a Sickle
+	int total = walletKnuts + galleonsToKnuts + sicklesToKnuts; // Total in knuts
 	return total;
 }
 
-/* Gringotts class- conversion function
-int Wallet:: getConversion() {
-	/* Converting change to Knuts
-	int GalleonsToKnuts = bankAccount.getGalleons()* 493; // 493 Knuts in a Galleon
-	int SicklesToKnuts = bankAccount.getSickles()* 29; // 29 Knuts in a Sickle
-	int total = bankAccount.getKnuts() + GalleonsToKnuts + SicklesToKnuts;
-	return total;
-}*/
-
-/* Gringotts class- deposit function */
-void Gringotts:: deposit() {
+/*Gringotts class- Withdraw function*/
+void Gringotts::withdraw() {
 	int choice, count;
 	walletBalance();
-	if (walletGalleons > 0) {
-		cout << "Would you like to deposit any Galleons? (Yes=1, No=2)";
-		cin >> choice;
-		choice = error(choice);
-		while (choice!=1 && choice!=2) {
-			cout << "Invalid input. Try again." << endl;
-			cout << "Would you like to deposit any Galleons? (Yes=1, No=2)";
-			cin >> choice;
-			choice = error(choice);
-		}
-		if (choice == 1) {
-			cout << "How many would you like to deposit?";
-			cin >> count;
-			count = error(count);
-			while (count > walletGalleons) {
-				cout << "You only have " << walletGalleons << " Galleons. Enter again." << endl;
-				cout << "How many would you like to deposit?";
-				cin >> count;
-				count = error(count);
-			}
-			walletGalleons-=count;
-			bankAccount.getGalleons() +=count;
-
-		}
-	}
-	else {
-		cout << "You have no Galleons to deposit." << endl;
-	}
-	if (walletSickles > 0) {
-		cout << "Would you like to deposit any Galleons? (Yes=1, No=2)";
-		cin >> choice;
-		choice = error(choice);
-		while (choice!=1 && choice!=2) {
-			cout << "Invalid input. Try again." << endl;
-			cout << "Would you like to deposit any Sickles? (Yes=1, No=2)";
-			cin >> choice;
-			choice = error(choice);
-		}
-		if (choice == 1) {
-			cout << "How many would you like to deposit?";
-			cin >> count;
-			count = error(count);
-			while (count > walletSickles) {
-				cout << "You only have " << walletSickles << " Sickles. Enter again." << endl;
-				cout << "How many would you like to deposit?";
-				cin >> count;
-				count = error(count);
-			}
-			walletSickles-=count;
-			bankAccount.getSickles()+=count;
-		}
-	}
-	else {
-		cout << "You have no Sickles to deposit." << endl;
-	}
-	if (walletKnuts > 0) {
-		cout << "Would you like to deposit any Knuts? (Yes=1, No=2)";
-		cin >> choice;
-		choice = error(choice);
-		while (choice!=1 && choice!=2) {
-			cout << "Invalid input. Try again." << endl;
-			cout << "Would you like to deposit any Knuts? (Yes=1, No=2)";
-			cin >> choice;
-			choice = error(choice);
-		}
-		if (choice == 1) {
-			cout << "How many would you like to deposit?";
-			cin >> count;
-			count = error(count);
-			while (count > walletKnuts) {
-				cout << "You only have " << walletKnuts << " Knuts. Enter again." << endl;
-				cout << "How many would you like to deposit?";
-				cin >> count;
-				count = error(count);
-			}
-			walletKnuts-=count;
-			bankAccount.getKnuts()+=count;
-
-		}
-	}
-	else {
-		cout << "You have no Knuts to deposit." << endl;
-	}
-}
-
-/* Gringotts class- Withdraw function */
-void Gringotts:: withdraw() {
-	int choice, count;
+	cout << bankAccount << endl;
 	if (bankAccount.getGalleons()>0) {
 		cout << "Would you like to withdraw any Galleons (Yes=1, No=2)? ";
 		cin >> choice;
-		choice = error(choice);
+		choice = Error(choice);
 		while (choice!=1 && choice!=2) {
 			cout << "Invalid input. Try again." << endl;
 			cout << "Would you like to deposit any Galleons? (Yes=1, No=2)";
 			cin >> choice;
-			choice = error(choice);
+			choice = Error(choice);
 		}
 		if (choice == 1) {
 			cout << "How many Galleons would you like to withdraw? ";
 			cin >> count;
-			count = error(count);
+			count = Error(count);
 			while (count > bankAccount.getGalleons()) {
 				cout << "You only have " << bankAccount.getGalleons() << " Galleons. Enter again." << endl;
 				cout << "How many would you like to withdraw?";
 				cin >> count;
-				count = error(count);
+				count = Error(count);
 			}
 			bankAccount.getGalleons()-=count;
 			walletGalleons+=count;
 		}
 	}
 	else {
-		cout << "You have no Galleons to deposit." << endl;
+		cout << "You have no Galleons to withdraw." << endl;
 	}
 	if (bankAccount.getSickles()>0) {
 		cout << "Would you like to withdraw any Sickles (Yes=1, No=2)? ";
 		cin >> choice;
-		choice= error(choice);
+		choice= Error(choice);
 		while (choice!=1 && choice!=2) {
 			cout << "Invalid input. Try again." << endl;
-			cout << "Would you like to deposit any Sickles? (Yes=1, No=2)";
+			cout << "Would you like to withdraw any Sickles? (Yes=1, No=2)";
 			cin >> choice;
-			choice = error(choice);
+			choice = Error(choice);
 		}
 		if (choice == 1) {
 			cout << "How many Sickles would you like to withdraw? ";
 			cin >> count;
-			count = error(count);
+			count = Error(count);
 			while (count > bankAccount.getSickles()) {
 				cout << "You only have " << bankAccount.getSickles() << " Sickles. Enter again." << endl;
 				cout << "How many would you like to withdraw?";
 				cin >> count;
-				count = error(count);
+				count = Error(count);
 			}
 			bankAccount.getSickles()-=count;
 			walletSickles+=count;
 		}
 	}
 	else {
-		cout << "You have no Sickles to deposit." << endl;
+		cout << "You have no Sickles to withdraw." << endl;
 	}
 	if (bankAccount.getKnuts()>0) {
 		cout << "Would you like to withdraw any Knuts (Yes=1, No=2)? ";
 		cin >> choice;
-		choice= error(choice);
+		choice= Error(choice);
 		while (choice!=1 && choice!=2) {
 			cout << "Invalid input. Try again." << endl;
-			cout << "Would you like to deposit any Knuts? (Yes=1, No=2)";
+			cout << "Would you like to withdraw any Knuts? (Yes=1, No=2)";
 			cin >> choice;
-			choice = error(choice);
+			choice = Error(choice);
 		}
 		if (choice == 1) {
 			cout << "How many Knuts would you like to withdraw? ";
 			cin >> count;
-			count = error(count);
+			count = Error(count);
 			while (count > bankAccount.getKnuts()) {
 				cout << "You only have " << bankAccount.getKnuts() << " Knuts. Enter again." << endl;
 				cout << "How many would you like to withdraw?";
 				cin >> count;
-				count = error(count);
+				count = Error(count);
 			}
 			bankAccount.getKnuts()-=count;
 			walletKnuts+=count;
 		}
 	}
 	else {
-		cout << "You have no Knuts to deposit." << endl;
+		cout << "You have no Knuts to withdraw." << endl;
 	}
 }
 
-/* Gringotts class- Transaction function */
+/*Gringotts class- Transaction function*/
 int Gringotts:: Transaction(int tempGalleons, int tempSickles, int tempKnuts) {
 	int choice;
-  walletBalance();
-	/* Converting charge total to Knuts*/
+	int x;
+	/*Converting charge total to Knuts*/
 	int GalleonsToKnuts = tempGalleons* 493; // 493 Knuts in a Galleon
 	int SicklesToKnuts = tempSickles* 29; // 29 Knuts in a Sickle
-	int transactionTotal = tempKnuts + GalleonsToKnuts + SicklesToKnuts;
-	if (getConversion() < transactionTotal) {
+	int transactionTotal = tempKnuts + GalleonsToKnuts + SicklesToKnuts; //Transaction total in Knuts
+	int walletTotal = getConversion(); // Wallet total in Knuts
+	if (walletTotal < transactionTotal) {
 		cout << "You do not have enough money. Would you like to go to the bank? (Yes=1, No=2)" << endl;
 		cin >> choice;
-		choice= error(choice);
+		choice = Error(choice);
 		while (choice!=1 && choice!=2) {
 			cout << "Invalid input. Try again." << endl;
 			cout << "Would you like to go to the bank? (Yes=1, No=2)";
 			cin >> choice;
-			choice = error(choice);
+			choice = Error(choice);
 		}
-		if (choice== 1) {
+		while (choice== 1) {
 			withdraw();
+
+			walletTotal = getConversion();
+			if (walletTotal < transactionTotal) {
+				cout << "You still do not have enough money. Would you like to go to the bank? (Yes=1, No=2)" << endl;
+				cin >> choice;
+				choice = Error(choice);
+				while (choice!=1 && choice!=2) {
+					cout << "Invalid input. Try again." << endl;
+					cout << "Would you like to go to the bank? (Yes=1, No=2)";
+					cin >> choice;
+					choice = Error(choice);
+				}
+			}
+			else {
+				choice = 3; // Exiting withdrawl loop and avoiding next loop
+			}
 		}
-		else {
-			return 0;
+		if (choice == 2) {
+			cout << "You cannot make your purchase" << endl;
+			x = 0; // Returning 0- purchase incomplete
 		}
 	}
 	else {
-		walletGalleons -= tempGalleons;
-		walletSickles -= tempSickles;
-		walletKnuts -= tempKnuts;
+		int finalTotal = walletTotal-transactionTotal;
+		walletGalleons = 0; // Initializing new wallet balance
+		walletSickles = 0;
+		walletKnuts = 0;
+		while (finalTotal>=493) { // Calculating total Galleons in change
+			walletGalleons+=1;
+			finalTotal-=493;
+		}
+		while (finalTotal>=29) { // Calculating total Sickles in change
+			walletSickles+=1;
+			finalTotal-=29;
+		}
+		walletKnuts = finalTotal; // Calculating total Knuts in change
 		walletBalance();
+		x = 1; // returning 1- purchase complete
 	}
+	return x;
 }
 
-/* Gringotts constructor function */
-Gringotts::Gringotts(string keyword, string name):bankAccount(keyword,name) {
+/*Gringotts constructor function*/
+Gringotts::Gringotts(string name):bankAccount(name) {
 	cout << "Welcome to the wizarding world " << bankAccount.getName() << "!" << endl;
-	sleep(5);
+	sleep(3);
 	cout << "To open your account we need to have a starting balance." << endl;
 	cout << "Let's exchange your Pounds for wizard currency." << endl;
-	bankAccount.setGalleons(41);
+	bankAccount.setGalleons(61);
 	bankAccount.setSickles(16);
 	bankAccount.setKnuts(391);
-  cout << bankAccount << endl;
-  cout << "Now lets help you withdraw some money for your wallet." << endl;
+	cout << "Now lets help you withdraw some money for your wallet." << endl;
+	/*Initializing wallet balance*/
+	walletGalleons = 0;
+	walletSickles = 0;
+	walletKnuts = 0;
 	withdraw();
 }
 
-
-/*	void bank(Gringotts& temp) {
-		int choice;
-		//const string MESSAGE= "Invalid input, please enter again.";
-		cout << "Would you like to check your account balance (1), deposit money (2), or withdraw money (3)? ";
-		cin >> choice;
-		choice= error(choice);
-		while (choice!=1 && choice!=2 && choice!=3) {
-			cout << "Invalid input, please enter again."<<endl;
-			cout << "Would you like to check your account balance (1), deposit money (2), or withdraw money (3)? ";
-			cin >> choice;
-		}
-		if (choice==1) {
-			cout << temp;
-		}
-		else if (choice==2) {
-			temp.deposit();
-		}
-		else if (choice==3) {
-			temp.withdraw();
-		}
-	}*/
+/*Gringotts destructor function*/
+Gringotts::~Gringotts() {
+	cout << "GAME OVER" << endl;
+}

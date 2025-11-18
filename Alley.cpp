@@ -1,18 +1,19 @@
+/*References: https://www.geeksforgeeks.org/cpp/multiset-in-cpp-stl/ */
 #include <iostream>
-#include "Gringotts.h"
-#include <vector>
+#include <fstream>
 #include <set>
 #include <unistd.h>
 #include <cstdlib>
-//https://www.geeksforgeeks.org/cpp/multiset-in-cpp-stl/
+#include "Gringotts.h"
 using namespace std;
 
-void Alley() {
-	srand(time(NULL));
-	int choice, i;
- int pet = 0;
+/*Function when player enters alley*/
+int Alley() {
+	srand(time(NULL)); // Seeding random number generator
+	int choice, i,x = 0;
+	int Pet = 0;
 	string wordBank[3]= {"hippogriff", "azkaban", "basilisk"};
-	multiset<char> word;
+	multiset<char> word; // Initializing multiset to sort word characters in order
 	cout << "You walk over to the witch" << endl;
 	cout << "\"You're looking for a pet aren't you?\" she says." << endl;
 	sleep(5);
@@ -24,52 +25,45 @@ void Alley() {
 	cout << "\" A phoenix. All you have to do to is unscramble a word and he is yours.\"" << endl;
 	cout << "\"Would you like to play?\" (Yes=1, No=2)" << endl;
 	cin >> choice;
-	//choice = error(choice);
+	choice = Error(choice);
 	while (choice!=1 && choice!=2) {
 		cout << "Invalid input. Try again." << endl;
 		cout << "\"Would you like to play?\" (Yes=1, No=2)";
 		cin >> choice;
-		//choice = error(choice);
+		choice = Error(choice);
 	}
-	int r = rand() % 4;
+	int r = rand() % 3;
 	for (i=0; i<wordBank[r].size(); i++) {
 		word.insert(wordBank[r][i]);
-		//cout << word[i];
 	}
 	cout << "Unscramble: ";
-/*	for(char c : word) {
+	for(char c : word) { // Range based sorting
 		cout << c << " ";
-	}*/
+	}
 	cout << endl;
 	cout << "You have 3 guesses" << endl;
 	int count=3;
-	int ii=1;
+	int ii=1; // Attempt counter
 	string guess;
 	do {
 		cin >> guess;
 		if (guess== wordBank[r]) {
 			cout << "You guessed correct, very good!" << endl;
 			cout << "The phoenix is now yours- take great care of him." << endl;
-			pet=1; // fix int- is global variable in header file
-			//read in phoenix ascii art
-			//ii=count;
+			x=1; // pet=1
+			/*Phoenix ascii art*/
+			ifstream fn("ascii_art_phx.txt");
+			string header[14];
+			for (i=0; i<14; i++) {
+				getline(fn, header[i]);
+				cout << header[i] << endl;
+			}
+			fn.close();
 		}
 		else {
 			cout << "Incorrect. Guess again." << endl;
 			ii++;
 		}
-	} while (ii<=count && pet!=1);
-	if (pet!=1) {
-		cout << "Your lack of cleverness disappoints me." << endl;
-		cout << "You do not deserve a phoenix as your companion. Be gone!" << endl;
-   pet = 0;
-	}
+	} while (ii<=count && x!=1);
+	return x;
 }
-
-
-
-
-
-
-  
-  

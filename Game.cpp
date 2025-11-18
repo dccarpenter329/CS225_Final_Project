@@ -40,34 +40,34 @@ int main() {
 	cout << "You take a look at the list of required supplies..." << endl;
 	cout << "Wand, robes, books, cauldron, pet..." << endl;
 	cout << "A note at the bottom: Everything you need can be found in Diagon Alley" << endl;
-	//sleep(3);
+	sleep(3);
 	cout << "But you have no clue what Diagon Alley is or where to find it." << endl;
 	cout << "You rifle through the papers in the hopes of finding something ";
 	cout << "when you find a map on the back of the list!" << endl;
-	//sleep(3);
+	sleep(3);
 	cout << "You grab your wallet and a bag and head out in search of the wizard town." << endl;
 	cout << "You walk towards Charing Cross Road and find the Leaky Caldron." << endl;
-	//sleep (3);
+	sleep (3);
 	cout << "Following the instructions, you walk around to the courtyard behind the tavern ";
 	cout << "and find a rubbish bin against a brick wall." << endl;
 	cout << "You go 3 bricks up and 2 across and knock twice." << endl;
-	//sleep (3);
+	sleep (3);
 	cout << "Suddenly the brick wall opens up to a bustling street full of wizards." << endl;
 	cout << "Many of them are the same age as you carrying bags full of new school supplies." << endl;
-	//sleep(3);
+	sleep(3);
 	cout << "You stop one and ask where to find Ollivanders wand shop." << endl;
 	cout << "Following the directions you turn right and walk until you find the sign: " << endl;
 	cout << "Ollivanders: Makers of Fine Wands since 382 B.C." << endl;
-	//sleep(3);
+	sleep(3);
 	cout << "You enter the shop to find your wand." << endl;
 	WandQuiz(); // Wand quiz function to figure out which wand you get
 	cout << "Your wand costs 26 Galleons, 5 Sickles, and 200 Knuts." << endl;
 	cout << "You go to pay for it with Pounds when Ollivander tells";
 	cout << "you those are not accepted in the wizarding world." << endl;
-	//sleep(3);
+	sleep(3);
 	cout << "You must go to Gringotts bank across the street to exchange your money." << endl;
 	cout << "You walk across the street and enter the massive marbled building." << endl;
-	//sleep(3);
+	sleep(3);
 	cout << "Welcome to Gringotts Wizarding Bank!" << endl;
 	cout << "What is your full name so we can open a bank account for you? ";
 	getline(cin, temp, '\n'); // Read in new line character before getline
@@ -79,7 +79,7 @@ int main() {
 	if (wandPurchase == 0) {
 		cout << "You take a look at your list- next up you must find your pet." << endl;
 		cout << "You ask Ollivandar where to find a pet store. He tells you to look for the Magical Menagerie on the North side of Diagon Alley." << endl;
-//sleep(5);
+		sleep(5);
 		cout << "However, he warns you to be careful as some odd people often linger on the streets of the North side." << endl;
 		cout << "You walk out of Ollivander's, no wand in hand." << endl;
 	}
@@ -87,12 +87,12 @@ int main() {
 		wand=1;
 		cout << "You take a look at your list- next up you must find your pet." << endl;
 		cout << "You ask Ollivandar where to find a pet store. He tells you to look for the Magical Menagerie on the North side of Diagon Alley." << endl;
-//sleep(5);
+		sleep(5);
 		cout << "However, he warns you to be careful as some odd people often linger on the streets of the North side." << endl;
 		cout << "You walk out of Ollivander's, wand in hand." << endl;
 	}
 
-	//sleep(5);
+	sleep(5);
 	cout << "With this warning in mind, you head towards North side in search of a new pet." << endl;
 	cout << "You pass candy shops and apothecarys, shops of ends and oddities. " << endl;
 	sleep(5);

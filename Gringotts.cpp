@@ -1,6 +1,6 @@
 #include <iostream>
-#include <unistd.h>
 #include "Gringotts.h"
+#include <unistd.h>
 using namespace std;
 
 /*Operator overloading*/
@@ -187,7 +187,7 @@ Gringotts::Gringotts(string name):bankAccount(name) {
 	sleep(3);
 	cout << "To open your account we need to have a starting balance." << endl;
 	cout << "Let's exchange your Pounds for wizard currency." << endl;
-	bankAccount.setGalleons(61);
+	bankAccount.setGalleons(71);
 	bankAccount.setSickles(16);
 	bankAccount.setKnuts(391);
 	cout << "Now lets help you withdraw some money for your wallet." << endl;

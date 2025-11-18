@@ -1,15 +1,17 @@
 #include <iostream>
 using namespace std;
+/*Function Declarations*/
 void Wand();
 void WandQuiz();
-int error(int);
-void Alley();
+int Error(int);
+int Alley();
+string SpellCasting();
 
-//Global Variables
+/*Global Variables*/
 extern int wand;
 extern int pet;
-//void cost(int, int, int, BankAccount&);
-//void bank(Gringotts&);
+
+/*Wallet Class*/
 class Wallet {
 protected:
 	int walletGalleons;
@@ -18,19 +20,18 @@ protected:
 public:
 	void walletBalance();
 	int getConversion();
-
 };
+
+/*Bank Account Class*/
 class BankAccount {
 protected:
-	string Keyword;
 	string Name;
 	int Galleons;
 	int Sickles;
 	int Knuts;
-	int Balance;
 public:
-	BankAccount(string k, string n) {Keyword=k; Name=n;}
 	friend ostream& operator<<(ostream& out, BankAccount& temp);
+	BankAccount(string n) {Name=n;}
 	int setGalleons(int G) {Galleons=G;}
 	int setSickles(int S) {Sickles=S;}
 	int setKnuts(int K) {Knuts=K;}
@@ -40,14 +41,13 @@ public:
 	string& getName() {return Name;}
 };
 
+/*Gringotts bank Class*/
 class Gringotts: public Wallet {
 private:
 	BankAccount bankAccount;
 public:
-	Gringotts(string,string);
-	void balance();
+	Gringotts(string);
+  ~Gringotts();
 	void withdraw();
-	void deposit();
 	int Transaction(int, int, int);
-	//void bank();
 };

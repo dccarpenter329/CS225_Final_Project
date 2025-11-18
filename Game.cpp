@@ -36,7 +36,7 @@ int main() {
 	}
 	fin.close();
 	/* Begin game*/
-	cout << "You open the letter and find out you're a wizard!" << endl;
+	cout << "You open a letter and find out you're a wizard!" << endl;
 	cout << "You take a look at the list of required supplies..." << endl;
 	cout << "Wand, robes, books, cauldron, pet..." << endl;
 	cout << "A note at the bottom: Everything you need can be found in Diagon Alley" << endl;

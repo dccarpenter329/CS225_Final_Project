@@ -2,9 +2,9 @@
 // Error handling if user enters a number for full name
 #include <iostream>
 #include <fstream>
+#include "Gringotts.h"
 #include <unistd.h>
 #include <cstdlib>
-#include "Gringotts.h"
 using namespace std;
 
 /*Error handling */
@@ -253,11 +253,13 @@ int main() {
 		cout << "You cannot pay for all your books" << endl;
 		cout << "You decide to call it a day and go home." << endl;
 	}
-	else if (books == 1 && wand == 1) {
+	else {
 		cout << "Books in hand you walk out of the store and ";
 		cout << "decide to finish your shopping another day." << endl;
 		cout << "At home you crack open your new books and start learning some spells." << endl;
+  }
 		/*Exceptions*/
+  if ( wand == 1) {
 		try {
 			string spell = SpellCasting();
 			cout << "\"" << spell << "!\"" << endl;
